@@ -1,0 +1,29 @@
+/* icons */
+main #icons {
+    position: fixed;
+    z-index: 6;
+    top: 500px;
+    left: calc(100% - 40px);
+}
+main #icons .icon {
+    margin-bottom: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border: none;
+}
+main #icons .icon:nth-child(1) {
+    background: #ef2853;
+}
+main #icons .icon:nth-child(2) {
+    background: var(--white);
+}
+main #icons .icon .icon-img {
+    width:40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main #icons .icon .icon-img .img-container {
+    display: none;
+}
+/* icons */

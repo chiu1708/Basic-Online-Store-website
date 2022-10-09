@@ -1,0 +1,40 @@
+:root {
+    --white: white;
+    --black: black;
+    --gray: #ccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+    font-family: 'Work Sans', sans-serif;
+}
+a {
+    text-decoration: none;
+    color: var(--black);
+    transition: .4s;
+}
+a:hover {
+    color: var(--black);
+}
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+img {
+    width: 100%;
+}
+.container-fluid {
+    padding: 0;
+}
+.upper {
+    text-transform:uppercase;
+}
+.active {
+    display: block !important;
+}

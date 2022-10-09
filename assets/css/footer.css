@@ -1,0 +1,229 @@
+:root {
+    --white: white;
+    --black: black;
+    --gray: #ccc;
+}
+
+footer a {
+    color: var(--white) !important;
+    opacity: .6;
+}
+
+footer {
+    background: var(--black);
+    color: var(--white);
+}
+
+
+
+/* top */
+footer .top {
+    display: flex;
+    justify-content: center;
+    padding: 5% 0;
+    position: relative;
+}
+footer .top:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    opacity: .3;
+    height: 1px;
+    width: 100%;
+}
+/* end top */
+
+
+
+/* middle */
+footer .middle {
+    padding: 5% 0;
+    position: relative;
+}
+footer .middle:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    opacity: .3;
+    height: 1px;
+    width: 100%;
+}
+footer .middle .content-row.links {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 8%;
+    justify-content: space-between;
+    margin-bottom: 7%;
+}
+footer .middle .content-row.links .column.links-column {
+    width: 25%;
+}
+footer .middle .content-row.links .column.links-column .title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+footer .middle .content-row.links .column.links-column ul li a {
+    font-size: 1.5rem;
+    line-height: 4rem;
+}
+footer .middle .content-row.links .column.links-column ul li:hover a {
+    opacity: 1;
+}
+footer .middle .content-row.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+footer .middle .content-row.form h2 {
+    font-size: 2.2rem;
+    letter-spacing: .5rem;
+    margin-bottom: 1%;
+    text-align: center;
+}
+footer .middle .content-row.form .input {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.5%;
+    width: 500px;
+}
+footer .middle .content-row.form .input input {
+    color: var(--white);
+    background: var(--black);
+    border: none;
+    border-bottom: 1px solid var(--white);
+    font-size: 1.3rem;
+    padding: 1rem 0;
+    outline: none;
+}
+footer .middle .content-row.form .input input[type="email"] {
+    width: 450px;
+}
+footer .middle .content-row.form .input input[type="submit"] {
+    padding: 0;
+    margin: 0;
+    width: 50px;
+}
+footer .middle .content-row.form ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 470px;
+}
+footer .middle .content-row.form ul li {
+    position: relative;
+    width: 100px;
+    text-align: center;
+}
+footer .middle .content-row.form ul li:after {
+    content: "";
+    background: var(--white);
+    width: 0;
+    height: 1px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transition: .4s;
+}
+footer .middle .content-row.form ul li:hover:after {
+    width: 100%;
+}
+footer .middle .content-row.form ul li a {
+    opacity: 1;
+    font-size: 12px;
+    letter-spacing: .2rem;
+}
+/* end middle */
+
+
+
+/* bottom */
+footer .bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 8%;
+    font-size: 1.3rem;
+}
+footer .bottom a:hover {
+    opacity: 1;
+}
+footer .bottom .column {
+    width: calc(100%/3);
+    display: flex;
+}
+footer .bottom .column:nth-child(2) {
+    justify-content: center;
+}
+footer .bottom .column:nth-child(3) {
+    justify-content: end;
+    height: 100%;
+}
+footer .bottom .column.privacy ul {
+    display: flex;
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+footer .bottom .column p span {
+    opacity: .6;
+}
+/* end bottom */
+
+
+
+@media screen and (max-width: 1025px) {
+    /* middle */
+    footer .middle .content-row.links .column.links-column {
+        width: 50%;
+        margin-bottom: 5%;
+    }
+    /* end middle */
+
+
+
+    /* bottom */
+    footer .bottom {
+        padding: 3% 0;
+    }
+    footer .bottom .column {
+        width: 100%;
+        margin-bottom: 3%;
+        justify-content: center !important;
+    }
+    /* end bottom */
+}
+
+
+
+/* lam responsive cho cai email */
+
+@media screen and (max-width: 740px) {
+    /* middle */
+    footer .middle .content-row.links .column.links-column {
+        width: 100%;
+    }
+    footer .middle .content-row.form input {
+        width: 80%;
+    }
+    footer .middle .content-row.form ul li {
+        margin-bottom: 2%;
+    }
+    footer .middle .content-row.form ul {
+        width:  80%;
+        justify-content: center;
+    }
+    footer .middle .content-row.form .input {
+        width: 100%;
+    }
+    footer .middle .content-row.form .input input[type="email"] {
+        width: 80%;
+    }
+    /* end middle */
+}

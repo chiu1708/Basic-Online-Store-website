@@ -1,0 +1,338 @@
+:root {
+    --white: white;
+    --black: black;
+    --gray: #ccc;
+}
+
+
+
+/* products */
+#products {
+    display: flex;
+    padding: 6%;
+}
+#products .products {
+    width: 80%;
+}
+#products .products .top-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#products .products .top-content p {
+    font-size : 1.3rem;
+    line-height: 3rem;
+    opacity: .6;
+    width: 50%;
+}
+#products .products .top-content #sort-type {
+    background: var(--white);
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: end;
+
+}
+#products .products .top-content #sort-type .current {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+#products .products .top-content #sort-type .sort-type-list {
+    display: none;
+}
+#products .products .top-content #sort-type .sort-type {
+    width: 200px;
+    line-height: 3rem;
+    padding: 0 1.5rem;
+}
+#products .products .top-content #sort-type span,
+#products .products .top-content #sort-type i {
+    font-size: 1.3rem;
+    line-height: 3rem;
+    opacity: .6;
+}
+#products .products .top-content #sort-type .sort-type-list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index:  6;
+    background: var(--white);
+    padding-bottom: 1rem;
+}
+#products .products .top-content #sort-type .sort-type-list .sort-type span {
+    transition: .4s;
+}
+#products .products .top-content #sort-type .sort-type-list .sort-type:hover span {
+    opacity: 1;
+}
+#products .products .top-content #sort-type .sort-type-list .sort-type.active span {
+    opacity: 1;
+}
+
+#products .cards-container {
+    display: flex;
+    flex-wrap:  wrap;
+}
+#products .cards-container .product-card-container {
+    width:  calc(100% / 3);
+    padding: 1.5%;
+    position: relative;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+#products .cards-container .product-card-container .new,
+#products .cards-container .product-card-container .sold,
+#products .cards-container .product-card-container .sale {
+    position: absolute;
+    top: 3rem;
+    right: 3.5rem;
+    padding: .4rem 3.5rem;
+    background: var(--white);
+    font-size: 1.2rem;
+    letter-spacing: .2rem;
+    font-weight: bold;
+}
+#products .cards-container .product-card-container .img-container {
+    transition: .4s;
+}
+#products .cards-container .product-card-container:hover .img-container {
+    opacity: .1;
+}
+#products .cards-container .product-card-container .text .name {
+    padding: .7rem 0;
+    letter-spacing: .5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+#products .cards-container .product-card-container .text .categories a {
+    font-size: 1.5rem;
+    opacity: .6;
+    margin-left: .5rem;
+}
+#products .cards-container .product-card-container .text .categories a:hover {
+    opacity: 1;
+}
+#products .cards-container .product-card-container .text .price {
+    font-size: 1.5rem;
+}
+#products .cards-container .product-card-container .text .review-container {
+    display: flex;
+    justify-content: center;
+}
+#products .cards-container .product-card-container .text .review-container ul {
+    display: flex;
+    justify-content: space-between;
+    width:80px;
+}
+#products .cards-container .product-card-container .text .review-container ul li i {
+    display: none;
+    opacity: .3;
+}
+#products .cards-container .product-card-container .icons {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    transition: .4s;
+}
+#products .cards-container .product-card-container:hover .icons {
+    z-index: 5;
+    top: 50%;
+}
+#products .cards-container .product-card-container .icons .icon-container {
+    margin: 0 20%;
+    border: none;
+    background: none;
+}
+#products .cards-container .product-card-container .icons .icon-container.add-to-cart-icon i {
+    display: none;
+}
+#products .cards-container .product-card-container .icons i {
+    font-size: 2rem;
+}
+#products .cards-container .product-card-container .icons .heart-icons i {
+    display: none;
+}
+#products .page-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10%;
+}
+#products .page-nav .btn i {
+    font-size: 5rem;
+    transition: .4s;
+}
+#products .page-nav .btn.prev-btn:hover i {
+    transform: translateX(-50%);
+}
+#products .page-nav .btn.next-btn:hover i {
+    transform: translateX(50%);
+}
+#products .page-nav ul {
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+}
+#products .page-nav ul li a {
+    font-size: 1.5rem;
+    position:  relative;
+    padding: 0;
+}
+#products .page-nav ul li a:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background: var(--black);
+    transition: .4s;
+}
+#products .page-nav ul li.active a:after {
+    width: 100%;
+}
+#products .page-nav ul li:hover a:after {
+    width: 100%;
+}
+
+
+
+#products .filters {
+    width: 20%;
+    padding-left: 3rem;
+}
+#products .filters .filter {
+    margin-bottom: 5rem;
+}
+
+#products .filters .categories-filter ul li {
+    font-size: 1.2rem;
+    display: flex;
+    letter-spacing: .2rem;
+}
+#products .filters h3 {
+    margin-bottom: 1.5rem;
+    letter-spacing: .2rem;
+}
+#products .filters .categories-filter ul li p {
+    margin-right: .4rem;
+    transition: .4s;
+}
+#products .filters .categories-filter ul li p.name:hover {
+    opacity: .4;
+}
+
+#products .filters .best-seller .best-seller-container .product-container {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+#products .filters .best-seller .best-seller-container .product-container .img-container {
+    width: 7rem;
+    margin-right: 1rem;
+}
+#products .filters .best-seller .best-seller-container .product-container .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#products .filters .best-seller .best-seller-container .product-container .text .price,
+#products .filters .best-seller .best-seller-container .product-container .text h5 {
+    font-size: 1.5rem;
+}
+#products .filters .best-seller .best-seller-container .product-container .text .review {
+    display: flex;
+    justify-content: center;
+}
+#products .filters .best-seller .best-seller-container .product-container .text .review ul {
+    display: flex;
+    justify-content: space-between;
+    width:80px;
+}
+#products .filters .best-seller .best-seller-container .product-container .text .review ul li i {
+    display: none;
+    opacity: .3;
+}
+
+#products .filters .tags-filter .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+#products .filters .tags-filter .tags-container p {
+    font-size: 1.2rem;
+    margin-right: 1.5rem;
+    transition: .4s;
+}
+#products .filters .tags-filter .tags-container p:hover {
+    opacity: .4;
+}
+
+#products .filters .form .input {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.5%;
+    width: 100%;
+    margin-bottom: 10rem;
+}
+#products .filters .form .input input,
+#products .filters .form .input button {
+    color: var(--black);
+    background: var(--white);
+    border: none;
+    border-bottom: 1px solid var(--black);
+    font-size: 1.3rem;
+    padding: 1rem 0;
+    outline: none;
+}
+#products .filters .form .input input {
+    width: 100%;
+}
+#products .filters .form .input button {
+    padding: 0;
+    margin: 0;
+}
+/* end products */
+
+
+
+
+@media screen and (max-width: 1025px) {
+    /* products */
+    #products .column.products {
+        width: 100%;
+    }
+    #products .column.filters {
+        display: none;
+    }
+    /* end products */
+}
+
+
+
+@media screen and (max-width: 740px) {
+    /* products */
+    #products .products .top-content p,
+    #products .products .top-content #sort-type {
+        width: 100%;
+        justify-content: start;
+    }
+    #products .cards-container .product-card-container {
+        width: 50%;
+    }
+    /* end products */
+}
+
+
+
+@media screen and (max-width: 350px) {
+    /* products */
+    #products .cards-container .product-card-container {
+        width: 100%;
+    }
+    /* end products */
+}

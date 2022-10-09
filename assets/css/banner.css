@@ -1,0 +1,49 @@
+#banner {
+    margin-top: 85px;
+    overflow: hidden;
+    position: relative;
+}
+#banner .img-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+#banner .img-container img {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#banner .text {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    font-size: 1.5rem;
+}
+#banner .text a,
+#banner .text span {
+    margin: 0 5px;
+    opacity: .6;
+}
+#banner .text a:hover {
+    opacity: 1;
+}
+
+
+
+
+@media screen and (max-width: 1800px) {
+    #banner .img-container img {
+        width: 1800px;
+    }
+}
+
+
+
+@media screen and (max-width: 1025px) {
+    #banner {
+        margin-top: 50px;
+    }
+}
