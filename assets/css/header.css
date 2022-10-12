@@ -13,12 +13,12 @@
     position: absolute;
     bottom: 100%;
     left: 0;
-    z-index: 10;
+    z-index: 50;
     height: 35vh;
     width: 100%;
     background:  var(--black);
     color: var(--white);
-    transition: .4s;
+    transition: .4s ease-in-out;
 }
 #hidden-header .content-container {
     display: flex;
@@ -56,6 +56,7 @@
 }
 #hidden-header .content-container .column.menu ul li {
     position: relative;
+    cursor: pointer;
 }
 #hidden-header .content-container .column.menu ul li:after {
     content: "";
@@ -65,7 +66,7 @@
     height: 1px;
     width: 0;
     background: var(--white);
-    transition: .4s;
+    transition: .4s ease-in-out;
 }
 #hidden-header .content-container .column.menu ul li:hover:after {
     width: 100%;
@@ -157,7 +158,7 @@ nav .links li span:after {
     height: 1px;
     width: 0;
     background: var(--black);
-    transition:  .4s;
+    transition:  .4s ease-in-out;
 }
 
 nav .links li:hover span:after {
@@ -171,7 +172,7 @@ nav .links .menu1 {
     padding: 0 30px;
     background: var(--black);
     height: 0;
-    transition: .4s;
+    transition: .4s ease-in-out;
     white-space: nowrap;
     overflow: hidden;
 }
@@ -188,7 +189,7 @@ nav .links .menu1 li a {
 nav .links .menu1 li a {
     color: var(--white);
     opacity: .8;
-    transition: .4s;
+    transition: .4s ease-in-out;
 }
 
 
@@ -204,7 +205,7 @@ nav .links .menu1 li a:after {
     height: 1px;
     width: 0;
     background: var(--white);
-    transition:  .4s;
+    transition:  .4s ease-in-out;
 }
 
 nav .links .menu1 li:hover a:after {
@@ -232,6 +233,58 @@ nav .icons .hamburger-button button .line {
     background:  var(--black);
     margin-bottom: 2.5px;
 }
+nav .icons .hamburger-button {
+    width: 20px;
+}
+nav .icons .hamburger-button .hamburger {
+    width: 100%;
+}
+nav .icons .hamburger-button .line {
+    position: relative;
+}
+nav .icons .hamburger-button .line:before,
+nav .icons .hamburger-button .line:after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+nav .icons .hamburger-button .line:before {
+    transform: translateY(-.5rem);
+}
+nav .icons .hamburger-button .line:after {
+    transform: translateY(.5rem);
+}
+nav .icons .hamburger-button .hamburger .line:before,
+nav .icons .hamburger-button .hamburger .line:after,
+nav .icons .hamburger-button .hamburger .line {
+    background: var(--black);
+    height: 2px;
+    border-radius: 5px;
+    width: 100%;
+    transition: .4s ease-in-out;
+}
+nav .icons .hamburger-button.open button .line {
+    transform: translateX(-1rem);
+    background: transparent;
+}
+nav .icons .hamburger-button.open button .line:before {
+    transform: rotate(45deg) translate(.7rem, -.7rem);
+}
+nav .icons .hamburger-button.open button .line:after {
+    transform: rotate(-45deg) translate(.7rem, .7rem);
+}
+nav .icons .hamburger-button button:hover .line {
+    transform: rotate(180deg);
+}
+nav .icons .hamburger-button.open button:hover .line {
+    transform: rotate(0deg);
+}
+nav .icons .hamburger-button.open button:hover .line:after {
+    transform: rotate(45deg);
+}
+nav .icons .hamburger-button.open button:hover .line:before {
+    transform: rotate(-45deg);
+}
 
 nav .icons li i, nav .icons li span {
     transition: .2s;
@@ -255,7 +308,7 @@ nav .icons li.list-button .body {
     color: var(--white);
     white-space: nowrap;
     padding: 30px;
-    transition: .4s;
+    transition: .4s ease-in-out;
 }
 
 nav .icons li.list-button:hover .body {
@@ -316,7 +369,7 @@ nav .icons li.list-button .body .cart-bottom-container button {
     border: 1px solid var(--white);
     color: var(--black);
     background: var(--white);
-    transition: .4s;
+    transition: .4s ease-in-out;
     letter-spacing: .3rem;
     font-size: 1.5rem;
 }
@@ -335,7 +388,7 @@ nav .icons li.list-button .body .cart-bottom-container button:hover {
     bottom: 0;
     z-index: -1;
     width: 100%;
-    background: var(--white);
+    transition: .4s;
 }
 
 #res-nav ul li {
@@ -343,10 +396,12 @@ nav .icons li.list-button .body .cart-bottom-container button:hover {
 }
 #res-nav>ul {
     width: 100%;
+    background: var(--white);
+    padding-bottom: 2%;
 }
 #res-nav>ul>li {
     width: 100%;
-    padding: .3% 5%;
+    padding: 1% 5%;
     width: 100%;
 }
 #res-nav>ul>li .title {
@@ -356,15 +411,15 @@ nav .icons li.list-button .body .cart-bottom-container button:hover {
 }
 #res-nav ul li .title .icon {
     transform: rotate(-90deg);
+    transition: .4s ease-in-out;
 }
 #res-nav ul li {
     display: block;
 }
 #res-nav ul li ul {
-    display: block;
     height: 0;
     overflow: hidden;
-    transition: .4s;
+    transition: .4s ease-in-out;
 }
 /* end nav */
 
@@ -399,11 +454,6 @@ nav .icons li.list-button .body .cart-bottom-container button:hover {
     }
     nav .icons {
         width: 250px;
-    }
-    nav .icons .hamburger-button .line {
-        height: 2px;;
-        width: 35px;
-        margin-bottom: 10px;
     }
     /* end nav */
 }

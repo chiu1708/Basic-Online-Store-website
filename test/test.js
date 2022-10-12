@@ -1,5 +1,10 @@
-const link = 'api-imgs/0.png';
+const imgs = document.querySelectorAll('img');
 
-const img = document.querySelector('img');
-console.log(`../assets/imgs/${link}`);
-img.src = `../assets/imgs/${link}`;
+imgs.forEach((img, index) => {
+    img.addEventListener('click', () => {
+        imgs.forEach((i) => {
+            i.classList.remove('active');
+        })
+        imgs[index + 1 == 1 ? 1 : 0].classList.add('active');
+    })
+})

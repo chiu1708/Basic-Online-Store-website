@@ -38,3 +38,10 @@ img {
 .active {
     display: block !important;
 }
+.hover-line {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--black);
+    transition: .17s;
+}

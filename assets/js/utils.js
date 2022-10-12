@@ -30,7 +30,7 @@ const buildCartItems = (product, quantity) => {
 }
 
 
-export const addCartItem = (product=null) => {
+export const addCartItem = (product=null, number=1) => {
     if (product != null) {
         const index = cartItemList.findIndex((item) => {
             return item.product.id == product.id;
@@ -38,11 +38,11 @@ export const addCartItem = (product=null) => {
         if (index == -1) {
             cartItemList.push({
                 product: product,
-                quantity: 1
+                quantity: number
             });
         }
         else {
-            cartItemList[index].quantity += 1;
+            cartItemList[index].quantity += number;
         }
         localStorage.setItem('cartItemList', JSON.stringify(cartItemList));
     }
@@ -78,7 +78,6 @@ const updateCartItem = () => {
     cartItemList.forEach( async (item) => {
         const itemElement = buildCartItems(item.product, item.quantity);
         itemsContainer.appendChild(itemElement);
-        console.log(itemElement);
     });
 
 
@@ -146,7 +145,6 @@ export const buildProductCard = (product) => {
     price.innerText = `$${product.price}.00`;
 
     const addToCartIcon = cardElement.querySelector(".add-to-cart-icon");
-    console.log(addToCartIcon);
     addToCartIcon.addEventListener("click", (e) => {
         e.preventDefault();
         addCartItem(product);

@@ -1,5 +1,4 @@
 import { getData, API_URL, buildReview, buildProductCard } from './utils.js';
-import { addCartItem } from './utils.js';
 
 const search = window.location.search;
 const param = new URLSearchParams(search);
@@ -210,7 +209,6 @@ const searchFunction = () => {
     const cardsContainer = document.querySelector('.cards-container');
     let name, category, price;
     const cardContainers = cardsContainer.querySelectorAll('.product-card-container');
-    console.log(cardContainers);
 }
 
 const submitSearch = document.querySelector('.submit-search');
@@ -224,4 +222,3 @@ addProductCard(products, cardStart, cardEnd);
 addBestSeller();
 buildCategoriesFilter();
 buildTagsFilter();
-addCartItem();

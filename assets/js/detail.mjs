@@ -1,5 +1,5 @@
 import { getData, API_URL, buildReview, buildProductCard } from "./utils.js"
-
+import { addCartItem } from "./utils.js";
 
 const chooseStar = document.querySelector('.your-review .stars-container');
 const whiteStars = chooseStar.querySelectorAll('.white');
@@ -66,9 +66,7 @@ const products = await getData(`${API_URL}/product`);
 const addRelateProduct = () => {
     const cardsContainer = document.querySelector("#relate-products .cards-container");
     for (let i = 0; i < 4; i++) {
-        console.log(products[i]);
         let cardElement = buildProductCard(products[i]);
-        console.log(cardElement);
         cardsContainer.appendChild(cardElement);
     }
 }
@@ -119,6 +117,20 @@ const buildProductDetail = async () => {
 
     const bottomReviewNumber = document.querySelector('.bottom-product-info .review-number');
     bottomReviewNumber.innerText = `${data.reviewList.length} review for ${data.name}`;
+
+    const addToCartInput = document.querySelector('.add-to-cart-container .number-input-container input');
+    const addToCartBtn = document.querySelector('.add-to-cart-container .button-container button');
+    addToCartBtn.addEventListener('click', () => {
+        addCartItem(data, Number(addToCartInput.value));
+    })
+    const addToCartBtns = document.querySelectorAll('.add-to-cart-container .number-input-container button');
+    const addProductQuantity = (add) => {
+        if (Number(addToCartInput.value) + add > 0) {
+            addToCartInput.value = Number(addToCartInput.value) + add;
+        }
+    }
+    addToCartBtns[1].addEventListener('click', () => addProductQuantity(1));
+    addToCartBtns[0].addEventListener('click', () => addProductQuantity(-1));
 
     const customerReviewContainer = document.querySelector('.bottom-info.reviews .reviews-container');
     data.reviewList.forEach((review) => {
