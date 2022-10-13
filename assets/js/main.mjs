@@ -1,4 +1,5 @@
-import { addCartItem } from './utils.js';
+import { addCartItem, addFavItem } from './utils.js';
 
 
 addCartItem();
+addFavItem();
