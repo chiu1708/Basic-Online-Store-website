@@ -62,6 +62,7 @@ sortTypes.forEach((element) => {
 const addProductCard = async (productsList=products, cardStart=0, cardEnd=productsList.length) => {
     addPageNavContent(productsList);
     const cardsContainer = document.querySelector("#products .cards-container");
+    cardsContainer.innerHTML = "";
     for (let i = cardStart; i < cardEnd; i++) {
         let cardElement = await buildProductCard(productsList[i]);
         cardsContainer.appendChild(cardElement);
@@ -222,3 +223,114 @@ addProductCard(products, cardStart, cardEnd);
 addBestSeller();
 buildCategoriesFilter();
 buildTagsFilter();
+
+
+
+
+const searchForm = document.querySelector('.search.input');
+const searchBtn = searchForm.querySelector('.submit-search');
+const searchInput = searchForm.querySelector('#search');
+console.log(products);
+searchBtn.addEventListener('click', () => {
+    const searchText = searchInput.value.toUpperCase();
+    const searchResults = [];
+    let isProduct;
+    for (let product of products) {
+        isProduct = false;
+
+        if (product.name.toUpperCase().indexOf(searchText) !== -1) {
+            searchResults.push(product);
+            continue;
+        }
+
+        for (let category of product.categoriesList) {
+            if (category.toUpperCase().indexOf(searchText) != -1) {
+                isProduct = true;
+                break;
+            }
+        }
+        if (isProduct) {
+            searchResults.push(product);
+            continue;
+        }
+
+
+
+        for (let tag of product.tagsList) {
+            if (tag.toUpperCase().indexOf(searchText) != -1) {
+                isProduct = true;
+                break;
+            }
+        }
+        if (isProduct) {
+            searchResults.push(product);
+        }
+
+    }
+
+    addProductCard(searchResults);
+
+
+    window.scrollTo(0, 0);
+    const searchTextDisplay = document.querySelector('.searchText');
+    searchTextDisplay.querySelector('.result').innerText = searchInput.value;
+    searchTextDisplay.classList.add('active');
+});
+
+
+
+
+// sort types
+const sortDefault = document.querySelector('#default');
+const sortRate = document.querySelector("#rate");
+const sortLowHigh = document.querySelector("#low");
+const sortHighLow = document.querySelector("#high");
+let sortList = [];
+let index;
+
+const findAverageStar = (product) => {
+    let sum = 0;
+    product.reviewList.forEach((review) => {
+        sum += review.star;
+    })
+    const average = sum / product.reviewList.length;
+    return average;
+}
+
+sortDefault.addEventListener('click', () => {
+    addProductCard(products, 0, 12);
+    toggleSortTypeList();
+})
+sortRate.addEventListener('click', () => {
+    sortList = [];
+    products.forEach((product) => {
+        index = sortList.findIndex((item) => {
+            return findAverageStar(product) >= findAverageStar(item);
+        })
+        sortList.splice(index, 0, product);
+    });
+    addProductCard(sortList);
+    toggleSortTypeList();
+})
+sortLowHigh.addEventListener('click', () => {
+    sortList = [];
+    products.forEach((product) => {
+        index = sortList.findIndex((item) => {
+            return product.price <= item.price;
+        });
+        sortList.splice(index, 0, product);
+    });
+    addProductCard(sortList);
+    toggleSortTypeList();
+});
+sortHighLow.addEventListener('click', () => {
+    sortList = [];
+    products.forEach((product) => {
+        index = sortList.findIndex((item) => {
+            return product.price >= item.price;
+        });
+        sortList.splice(index, 0, product);
+    });
+    addProductCard(sortList);
+    toggleSortTypeList();
+});

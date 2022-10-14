@@ -132,8 +132,26 @@
 
 
 
+    <template id="favItem">
+        <div class="item-container">
+            <a href="">
+                <div class="img-container">
+                    <img src="#" alt="...">
+                </div>
+                <div class="text">
+                    <h5 class="name"></h5>
+                    <p class="price">
+                        <span class="price"></span>
+                    </p>
+                </div>
+            </a>
+            <div class="x"><i class="fa-solid fa-x"></i></div>
+        </div>
+    </template>
+
+
     <template id="cartItem">
-        <div class="cart-item-container">
+        <div class="item-container">
             <a href="">
                 <div class="img-container">
                     <img src="" alt="...">
@@ -707,7 +725,7 @@
 
 
     <script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/header.js"></script>
+    <script type="module" src="assets/js/header.mjs"></script>
     <script type="module" src="assets/js/main.mjs"></script>
     <script type="module" src="assets/js/detail.mjs"></script>
     <script src="assets/js/anim.js"></script>

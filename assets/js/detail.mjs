@@ -1,5 +1,5 @@
 import { getData, API_URL, buildReview, buildProductCard } from "./utils.js"
-import { addCartItem } from "./utils.js";
+import { addCartItem, addFavItem } from "./utils.js";
 
 const chooseStar = document.querySelector('.your-review .stars-container');
 const whiteStars = chooseStar.querySelectorAll('.white');
@@ -131,6 +131,9 @@ const buildProductDetail = async () => {
     }
     addToCartBtns[1].addEventListener('click', () => addProductQuantity(1));
     addToCartBtns[0].addEventListener('click', () => addProductQuantity(-1));
+
+    const addToFav = document.querySelector('.add-to-wish-list-container');
+    addToFav.addEventListener('click', () => addFavItem(data));
 
     const customerReviewContainer = document.querySelector('.bottom-info.reviews .reviews-container');
     data.reviewList.forEach((review) => {

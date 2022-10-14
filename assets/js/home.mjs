@@ -1,4 +1,4 @@
-import { addCartItem } from './utils.js';
+import { addFavItem } from './utils.js';
 import { getData, API_URL } from './utils.js';
 
 const products = await getData(`${API_URL}/product`);
@@ -10,8 +10,6 @@ const toProductList = () => {
 document.querySelector('button.shop-now').addEventListener('click', toProductList);
 
 
-
-addCartItem();
 
 
 
@@ -99,11 +97,26 @@ const buildProductCard = (product) => {
     const price = cardElement.querySelector(".price");
     price.innerText = `$${product.price}.00`;
 
-    const addToCartIcon = cardElement.querySelector(".add-to-cart-icon");
-    addToCartIcon.addEventListener("click", (e) => {
+    
+    const addToFavIcon = cardElement.querySelector(".heart-icons");
+    const whiteHeart = addToFavIcon.querySelector(".white");
+    const blackHeart = addToFavIcon.querySelector(".black");
+    let favItemList = JSON.parse(localStorage.getItem('favItemList')) ? JSON.parse(localStorage.getItem('favItemList')) : [];
+    if (favItemList.findIndex((item) => {
+        return product.id == item.product.id;
+    
+    }) == -1) {
+        whiteHeart.classList.add("active");
+        blackHeart.classList.remove("active");
+    }
+    else {
+        blackHeart.classList.add("active");
+        whiteHeart.classList.remove("active");
+    }
+    addToFavIcon.addEventListener("click", (e) => {
         e.preventDefault();
-        addCartItem(product);
-    })
+        addFavItem(product);
+    });
 
     return cardElement;
 }

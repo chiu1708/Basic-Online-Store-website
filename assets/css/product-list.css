@@ -11,13 +11,15 @@
     display: flex;
     padding: 6%;
 }
+#products .searchText {
+    font-size: 5rem;
+    letter-spacing: 1rem;
+    opacity: .6;
+    display: none;
+    margin-bottom: 4rem;
+}
 #products .products {
     width: 80%;
-}
-#products .products .top-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
 }
 #products .products .top-content p {
     font-size : 1.3rem;
@@ -27,11 +29,9 @@
 }
 #products .products .top-content #sort-type {
     background: var(--white);
+    width: 200px;
     position: relative;
-    width: 50%;
     display: flex;
-    justify-content: end;
-
 }
 #products .products .top-content #sort-type .current {
     display: flex;

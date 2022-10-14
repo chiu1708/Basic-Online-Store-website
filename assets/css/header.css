@@ -348,6 +348,7 @@ nav .icons li.list-button .body .list .item-container .x {
     top: 0;
     right: 0;
     font-size: 2rem;
+    cursor: pointer;
 }
 nav .icons li.list-button .body .cart-bottom-container {
     display: none;

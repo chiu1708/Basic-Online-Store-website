@@ -1,3 +1,9 @@
+import { updateCartItem, updateFavItem } from './utils.js';
+
+
+updateCartItem();
+updateFavItem();
+
 const hiddenHeaderX = document.querySelector('#hidden-header .content-container .x');
 const hiddenHeader = document.querySelector('#hidden-header');
 const hamburger = document.querySelector('header .hamburger-button');
