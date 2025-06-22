@@ -1,4 +1,4 @@
-# SIMPLE ONLINE STORE WEBSITE
+# SIMPLE ONLINE STORE WEBSITE (for html and css course project)
 
 ## Link:
 https://chiu1708.github.io/Basic-Online-Store-website/
