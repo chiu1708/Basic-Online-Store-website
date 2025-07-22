@@ -1,7 +1,7 @@
 # SIMPLE ONLINE STORE WEBSITE (for html and css course project)
 
 ## Link:
-https://chiu1708.github.io/Basic-Online-Store-website/
+[https://chiu1708.github.io/Basic-Online-Store-website/](https://chiu1708.github.io/Simple-Online-Store-website/)
 ## Features
 
 - Display products
